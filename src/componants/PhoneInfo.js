@@ -47,7 +47,7 @@ class PhoneInfo extends Component{
         const { info, onUpdate } = this.props;
         if(!prevState.editing && this.state.editing) {
           // editing 값이 false -> true 로 전환 될 때
-          // info 의 값을 state 에 넣어준다
+          // info 의 값을 state 에 넣어준다.
           this.setState({
             name: info.name,
             phone: info.phone
