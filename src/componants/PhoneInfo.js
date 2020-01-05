@@ -39,6 +39,18 @@ class PhoneInfo extends Component{
     }
     //input 에서 onChange 이벤트가 발생될때 호출되는 함수임.
 
+    shouldComponentUpdate(nextProps, nextState){
+    //수정상태가 아니고 info값이 같다면 리렌더링함.
+        if (!this.state.editing
+            && !nextState.editing
+            && nextProps.info === this.props.info){
+                return false;
+            }
+            return true;
+            //나머지 경우에는 그냥 리렌더링
+    }
+
+
     componentDidUpdate(prevProps, prevState) {
         // 여기서는, editing 값이 바뀔 때 처리 할 로직이 적혀있습니다.
         // 수정을 눌렀을땐, 기존의 값이 input에 나타나고,
@@ -65,6 +77,7 @@ class PhoneInfo extends Component{
 
 
     render(){
+        console.log('render PhoneInfo' + this.props.info.id )
         const style = {
             border: '1px solid black',
             padding: '8px',
